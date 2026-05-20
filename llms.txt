@@ -1,0 +1,42 @@
+# GroupDocs.Markdown MCP Server
+
+MCP server exposing GroupDocs.Markdown for .NET — convert PDF, DOCX, XLSX, EPUB, MOBI, and 20+ document formats to clean, structured Markdown via AI agents (Claude, Cursor, VS Code / GitHub Copilot, and other MCP-compatible clients).
+
+## Install
+
+- With dnx (.NET 10 SDK, no install step): `dnx GroupDocs.Markdown.Mcp@26.5.0 --yes`
+- As a global dotnet tool: `dotnet tool install -g GroupDocs.Markdown.Mcp` then run `groupdocs-markdown-mcp`
+- As a Docker container: `docker run --rm -i -v $(pwd)/documents:/data ghcr.io/groupdocs-markdown/markdown-net-mcp:latest`
+- No native prerequisites on any platform — the GroupDocs.Markdown engine uses a self-contained SkiaSharp native asset, so dnx, the global tool, and Docker all run without extra apt/brew packages.
+
+## MCP tools
+
+- ConvertToMarkdown — convert a document (PDF, DOCX, XLSX, EPUB, MOBI, …) to clean, structured Markdown; images embed as base64 by default, or save to files / skip. Saves the .md to storage and returns the content inline.
+- GetDocumentInfo — return file format, page count, title, author, and encryption flag as JSON, without converting.
+
+Reverse Markdown → document composition (ComposeFromMarkdown) is NOT exposed — `MarkdownConverter.FromMarkdownString` throws NotImplementedException in GroupDocs.Markdown 26.3.0. Use the GroupDocs.Conversion MCP for Markdown → DOCX / PDF / HTML in the interim.
+
+## Supported formats
+
+PDF, DOCX, DOC, RTF, ODT, XLSX, XLS, ODS, CSV, TSV, EPUB, MOBI, TXT, CHM, and 20+ other document formats — all convertible to Markdown.
+
+## Environment variables
+
+- GROUPDOCS_MCP_STORAGE_PATH — base folder for input + output (defaults to current working directory)
+- GROUPDOCS_MCP_OUTPUT_PATH — optional, routes output files to a separate folder
+- GROUPDOCS_LICENSE_PATH — path to GroupDocs.Total.lic, omit for evaluation mode (output may be limited / carry an evaluation notice)
+
+## Key links
+
+- NuGet: https://www.nuget.org/packages/GroupDocs.Markdown.Mcp
+- Repository: https://github.com/groupdocs-markdown/GroupDocs.Markdown.Mcp
+- Docker: ghcr.io/groupdocs-markdown/markdown-net-mcp and docker.io/groupdocs/markdown-net-mcp
+- License: MIT
+
+## Example prompts for AI agents
+
+- "Convert report.pdf to Markdown"
+- "Export business-plan.docx as Markdown with images embedded as base64"
+- "Convert pages 1-3 of contract.pdf to Markdown, text only — skip images"
+- "How many pages does business-plan.pdf have?"
+- "What format and author does cost-analysis.xlsx have?"
