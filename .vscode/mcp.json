@@ -9,6 +9,14 @@
     }
   ],
   "servers": {
+    "groupdocs-markdown": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["GroupDocs.Markdown.Mcp", "--yes"],
+      "env": {
+        "GROUPDOCS_MCP_STORAGE_PATH": "${input:storage_path}"
+      }
+    },
     "groupdocs-markdown-dev": {
       "type": "stdio",
       "command": "dotnet",
