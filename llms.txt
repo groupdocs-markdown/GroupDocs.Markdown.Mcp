@@ -4,7 +4,7 @@ MCP server exposing GroupDocs.Markdown for .NET — convert PDF, DOCX, XLSX, EPU
 
 ## Install
 
-- With dnx (.NET 10 SDK, no install step): `dnx GroupDocs.Markdown.Mcp@26.7.1 --yes`
+- With dnx (.NET 10 SDK, no install step): `dnx GroupDocs.Markdown.Mcp@26.7.2 --yes`
 - As a global dotnet tool: `dotnet tool install -g GroupDocs.Markdown.Mcp` then run `groupdocs-markdown-mcp`
 - As a Docker container: `docker run --rm -i -v $(pwd)/documents:/data ghcr.io/groupdocs-markdown/markdown-net-mcp:latest`
 - No native prerequisites on any platform — the GroupDocs.Markdown engine uses a self-contained SkiaSharp native asset, so dnx, the global tool, and Docker all run without extra apt/brew packages.
